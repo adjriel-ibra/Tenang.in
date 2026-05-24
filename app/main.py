@@ -37,7 +37,6 @@ def root():
 class BurnoutInput(BaseModel):
     Jam_Tidur_Semalam: float
     Seberapa_Sibuk_Anda_Hari_Ini: float
-    Seberapa_Banyak_Tugas: float
     Suasana_Hati_Anda: float
     prob_anger: float
     prob_anticipation: float
@@ -45,6 +44,7 @@ class BurnoutInput(BaseModel):
     prob_fear: float
     prob_joy: float
     prob_sadness: float
+    prob_trust: float
 
 # =========================
 # PREDICT ENDPOINT
@@ -55,7 +55,6 @@ def predict(data: BurnoutInput):
     input_dict = {
         'Jam Tidur Semalam': data.Jam_Tidur_Semalam,
         'Seberapa Sibuk Anda Hari Ini (1-5)': data.Seberapa_Sibuk_Anda_Hari_Ini,
-        'Seberapa Banyak Tugas/Pekerjaan (1-5)': data.Seberapa_Banyak_Tugas,
         'Suasana Hati Anda (1-5)': data.Suasana_Hati_Anda,
         'prob_anger': data.prob_anger,
         'prob_anticipation': data.prob_anticipation,
@@ -63,6 +62,7 @@ def predict(data: BurnoutInput):
         'prob_fear': data.prob_fear,
         'prob_joy': data.prob_joy,
         'prob_sadness': data.prob_sadness,
+        'prob_trust': data.prob_trust,
     }
 
     # dataframe
